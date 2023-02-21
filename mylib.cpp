@@ -1,14 +1,6 @@
 #include "mylib.h"
-//a
-Pt* make_point (string id) {
-    Pt* dot = new Pt;
-    dot->name = id;
-    cout << "\nВведите x и y: ";
-    cin >> dot->x >> dot->y;
-    return dot;
-}
 
-Pt* random_walk (Pt *obj) {
+point* random_walk (point *obj) {
     int t_x = rand()%1000 - 500; 
     int t_y = rand()%1000 - 500;
     int S_x = fabs(obj->x) + fabs(t_x);
@@ -21,7 +13,7 @@ Pt* random_walk (Pt *obj) {
     return obj;
 }
 
-void point_show (Pt *obj) {
+void point_show (point *obj) {
     cout 
     << "\nВ настоящее время точка имеет такие данные: "
     << "\nИмя: " << obj->name
@@ -32,7 +24,7 @@ void point_show (Pt *obj) {
 }
 
 //a
-void distance (Pt* obj1, Pt* obj2) {
+void distance (point* obj1, point* obj2) {
     float dist; int diff_x, diff_y;
     if (obj1->x == obj2->x || obj1->y == obj2->y) {
         dist = fabs (obj1->x - obj2->x) + fabs (obj1->y - obj2->y);
@@ -48,7 +40,7 @@ void distance (Pt* obj1, Pt* obj2) {
 void menu_func () {
     int ch, struct_ch, wh = 1;
     string new_name;
-    Pt* prev, *curr, *temp;
+    point* prev, *curr, *temp;
     cout 
     << "\n(Всего можно создать две структуры (для тестирования дистанции))"
     << "\nМеню: "
@@ -65,7 +57,8 @@ void menu_func () {
             prev = curr;
             cout << "\nВведите название объекта: ";
             cin >> new_name;
-            curr = make_point(new_name);
+            curr = new point(new_name, 0, 0);
+            //curr = make_point(new_name);
             point_show (curr);
             break;
         case 2:
