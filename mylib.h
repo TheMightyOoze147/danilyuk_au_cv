@@ -16,10 +16,15 @@ public:
     x = d_x;
     y = d_y;;
     }
+    random_walk (point *obj);
+    point_show (point *obj);
+    distance (point* obj1, point* obj2)
+    menu_func ();
 };
 
-point* random_walk (point *obj);
-void point_show (point *obj);
-void distance (point* obj1, point* obj2);
-void menu_func ();
+
+// point* random_walk (point *obj);
+// void point_show (point *obj);
+// void distance (point* obj1, point* obj2);
+// void menu_func ();
 #endif // MYLIB_H
